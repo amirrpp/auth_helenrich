@@ -1,0 +1,88 @@
+{% extends "blocks/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid bradc-top">
+         <div class="row">
+             <div class="col-sm-12">
+                 <ol class="breadcrumb">
+                  <li><a href="#">Главная</a></li>
+                  <li class="active">Отзывы</li>
+                </ol>
+             </div>
+         </div>
+         <div class="container all-rew-page">
+            <p class="z1-catalog">Отзывы</p>
+             <div class="row">
+                 <div class="col-sm-6">
+                    {% for comment in ratings %}
+                    <div class="row all-rew-page-15">
+                     <div class="col-xs-2 text-center"><img src="/static/images/quote_icon.png" alt="alt"></div>
+                     <div class="col-xs-10 content-rew-custom">
+                         <p>{{comment.user_name}}</p>
+                         <p>{{comment.comment}}</p>
+                         <p>{{comment.date_on_add}}</p>
+                     </div>
+                    </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 more-rew">
+                            <a href="#">Показать еще...</a>
+                        </div>
+                    </div>  
+                 </div>
+                 <div class="col-sm-6">
+                     <div class="ofor-z text-center">
+                         <p class="ofor-z-z">Оставить отзыв</p>
+                         <form action="" method="post">
+                            {% csrf_token %}
+                            <input maxlength="100" name="user_name" type="text" value=""  placeholder="Имя">
+                            <input  maxlength="100" name="user_email" type="text" value=""  placeholder="Телефон">
+                            <textarea cols="25" rows="5" maxlength="255" name="user_message">Текст...</textarea>
+                            <input type="button" name="button" value="Отменить" class="go-rew-1">
+                            <input type="submit" name="button" value="Отправить" class="go-rew">
+                            <input  name="user_rating" step="any" type="hidden" value="0">
+                            <input  name="redirect_url" type="hidden" value="/spasibozavashotzyv">
+                        </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+      </div>  
+
+
+<!-- {%  for item in ratings %}
+    {{ item }}
+{% empty %}
+    <h1>Sorry, but here is not comments yet. You'll may be first :)</h1>
+{% endfor %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form_rating.non_field_errors }}
+        <div class="row">
+            {{ form_rating.user_name.errors }}
+            <label for="{{ form_rating.user_name.id_for_label }}">Your Name:</label>
+            {{ form_rating.user_name }}
+        </div>
+        <div class="row">
+            {{ form_rating.user_email.errors }}
+            <label for="{{ form_rating.user_email.id_for_label }}">Your email address:</label>
+            {{ form_rating.user_email }}
+        </div>
+        <div class="row">
+            {{ form_rating.user_rating.errors }}
+            <label for="{{ form_rating.user_rating.id_for_label }}">Rating</label>
+            <input name="user_rating" class="rating form-control hide" id="{{ form_rating.user_rating.id_for_label }}" value="1" data-size="xs"/>
+        </div>
+        <div class="row">
+            {{ form_rating.user_message.errors }}
+            <label for="{{ form_rating.user_message.id_for_label }}">Your Message:</label>
+            {{ form_rating.user_message }}
+        </div>
+        <div class="row">
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div> -->
+{% endblock %}

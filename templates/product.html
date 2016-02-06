@@ -1,0 +1,97 @@
+{% extends "blocks/base.html" %}
+
+{% block content %}
+
+
+
+<div class="container-fluid bradc-top">
+   <div class="row">
+       <div class="col-sm-12">
+           <ol class="breadcrumb">
+              <li><a href="/">Главная</a></li>
+              <li><a href="/catalog">Каталог</a></li>
+              <li class="active">{{ product.code }}</li>
+          </ol>
+      </div>
+  </div>
+  <div class="container">
+   <div class="row">
+       <div class="col-sm-6">
+          <p class="z1-catalog p3-mob-1">{{ product.name }}</p>
+          <div class="col-sm-8 max-img text-center">
+            {% for image in product_images %}
+            {% if forloop.first %}
+            <img src="{{ image.large_image }}" alt="{{ image.title }}">
+            {% endif %}
+            {% endfor %}               
+        </div>
+        <div class="col-sm-4 mini-img">
+            {% for image in product_images %}
+            {% if forloop.first %}
+            {% else %}
+            <img src="{{ image.small_image }}" alt="{{ image.title }}"/>
+            {% endif %}
+            {% endfor %} 
+        </div>                   
+    </div>
+    <div class="col-sm-6 filtr-karta">
+       <p class="z1-catalog">{{ product.h1 }}</p>
+       <p class="desc-karta-z">описание</p>
+       <p class="desc-karta">
+        {% autoescape off %}
+        {{ product.first_text }}
+        {% endautoescape %}
+    </p>
+    <div class="product-add_to_cart">
+        {% if product_price_corrector %}
+        <div class="col-sm-6 filtr-karta-size">
+           <p class="desc-karta-z">размер</p>
+           <div class="product-price_corrector">
+           {% for corrector in product_price_corrector %}
+           <input type="radio" name="product_{{ product.id }}" id="cor_{{ product.id }}_{{ corrector.id }}" value="{{ corrector.new_price }}" data-c="{{ corrector.id }}">
+           <label for="cor_{{ product.id }}_{{ corrector.id }}">{{ corrector.name }}</label>
+           {% endfor %}
+           </div>
+           <input type="button" name="button" value="в корзину" class="to-cart-p3 add-to-cart" data-p="{{ product.id }}" data-c="">
+       </div>
+       <div class="col-sm-6 col-xs-12 filtr-karta-size">
+           <p class="desc-karta-z">цена</p>
+           <p class="desc-karta-p"><span class="product-price_corrector_print">{{ product.default_price }}</span> грн</p>
+           <input type="button" name="button" value="в корзину" class="to-cart-p3 to-cart-p3-1 add-to-cart" data-p="{{ product.id }}" data-c="">
+       </div>
+       {% else %}
+        <div class="col-sm-6 filtr-karta-size">               
+           <input type="button" name="button" value="в корзину" class="to-cart-p3 add-to-cart" data-p="{{ product.id }}" data-c="">
+       </div>
+       <div class="col-sm-6 col-xs-12 filtr-karta-size">
+           <p class="desc-karta-z">цена</p>
+           <p class="desc-karta-p">{{ product.default_price }} грн</p>
+           <input type="button" name="button" value="в корзину" class="to-cart-p3 to-cart-p3-1 add-to-cart" data-p="{{ product.id }}" data-c="">
+       </div>
+       {% endif %}
+   </div>
+</div>
+</div>
+</div>
+</div>     
+
+
+<!--    Топ продаж-->
+
+<div class="container-fluid custom-top-sale">
+    <div class="row top-sale-img text-center">
+        <div class="col-sm-12 custom-resize-sale">
+            <p>Похожие товары</p>
+            <div class="custom-b-resize"></div>
+        </div>          
+    </div>
+    <div class="container">
+        <div class="row custom-mob-gall-box">
+                    {%  for p in similar_products %}
+                        {% include "blocks/_product-item-preview_dp-index.html" with item=p %}
+                    {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+django==1.8.7
+django-admin-bootstrapped
+django-mptt
+django_mptt_admin
+pillow
+django-ckeditor==4.4.5
+django-image-cropping
+easy_thumbnails
+django-smart-selects
+django-modeladmin-reorder
+psycopg2

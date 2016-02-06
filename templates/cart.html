@@ -1,0 +1,79 @@
+{% extends "blocks/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid bradc-top">
+         <div class="row">
+             <div class="col-sm-12">
+                 <ol class="breadcrumb">
+                  <li><a href="#">Главная</a></li>
+                  <li class="active">Корзина</li>
+                </ol>
+             </div>
+         </div>
+        <div class="container cutom-n-cart">
+            <p class="z1-catalog">Корзина</p>
+            <div class="row head-cart removeContent">
+                <div class="col-sm-4">
+                    <p>Товар</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>Количество</p>
+                </div>
+                <div class="col-sm-2">
+                    <p>Количество</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>Сума</p>
+                </div>
+            </div>
+            
+              {% include "blocks/_cart.html" %}
+        </div>
+        
+        <div class="container cutom-n-car-mob">
+            <p class="z1-catalog">Корзина</p>
+            <div class="row top-cart-prw">
+                <div class="col-xs-3 img-cart-g-b">
+                    <img src="/static/images/cartphoto.png" alt="alt">
+                </div>
+                <div class="col-xs-9">
+                    <p class="mob-cart-z9">Название</p>
+                    <p class="mob-cart-p9">Платье "Весна"</p>
+                    <p class="mob-cart-z9">Цена</p>
+                    <p class="mob-cart-p9">1500 грн.</p>
+                    <p class="mob-cart-z9">Количество</p>
+                    <div class="col-xs-12 add-rem-cart-m">
+                    <img src="/static/images/add-good.png" alt="alt">
+                    <span class="all-good-cart text-center">1</span>
+                    <img src="/static/images/rgood.png" alt="alt">
+                    </div>
+                    <p class="mob-cart-z9">Сума</p>
+                    <p class="mob-cart-p9">1500 грн</p>
+                    <img src="/static/images/delete_icon.png" alt="alt" class="rem-all-good-a">
+                </div>
+            </div>
+            <div class="row botom-prw">
+                <div class="col-xs-6 text-left">
+                    <p>Всего</p>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <p>1500 грн</p>
+                </div>
+            </div>
+        </div>      
+        <div class="container removeContent">
+          <div class="row off-g-12">
+                <input type="button" name="button" value="Оформить" class="off-g">
+            </div>  
+        </div>
+        <div class="container order-form-tgg">
+             <div class="row">
+                 <div class="col-md-6 col-md-offset-3">
+                     {% include "blocks/_form_order.html" %}
+                 </div>
+             </div>
+         </div>      
+      </div>
+
+{% endblock %}

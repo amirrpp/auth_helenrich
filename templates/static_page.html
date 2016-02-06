@@ -1,0 +1,14 @@
+{% extends "blocks/base.html" %}
+
+{% block content %}
+
+
+                {% if static_page.first_text %}
+                {% autoescape off %}{{ static_page.first_text }}{% endautoescape off %}
+                {% endif %}
+
+                {% if static_page.second_text %}
+                {% autoescape off %}{{ static_page.second_text }}{% endautoescape off %}
+                {% endif %}
+
+{% endblock %}

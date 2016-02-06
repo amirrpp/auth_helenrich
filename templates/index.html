@@ -1,0 +1,90 @@
+{% extends "blocks/base.html" %}
+
+{% block content %}
+
+
+<!--     Top banner-->
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 custom-zero">
+                {% include "blocks/_gallery.html"%}
+            </div>
+        </div>
+    </div>
+
+    <!--    Top under.banner-->
+    
+    <div class="container-fluid cusom-pb-bg">
+        <div class="row top-pb">
+            <div class="col-sm-6 left-pb" style="bacground-image: url(/static/css/images/11photo.png)">
+                <p>новая<span>колекция</span></p>
+                <p>осень/зима 2016</p>
+                <button class="see-top-pb">Смотреть</button>
+            </div>
+            <div class="col-sm-6 right-pb">
+                <p>лук<span>бук</span></p>
+                <p>весна/лето 2016</p>
+                <button class="see-top-pb">Смотреть</button>
+            </div>
+        </div>
+    </div>
+<!--    Top sales-->
+    
+    <div class="container-fluid custom-top-sale">
+        <div class="row top-sale-img text-center">
+            <div class="col-sm-12 custom-resize-sale">
+                <p>топ продаж</p>
+                <div class="custom-b-resize"></div>
+            </div>          
+        </div>
+        <div class="container">
+            <div class="row custom-mob-gall-box"> 
+
+                    {% if top_products %}
+                        {% autoescape off %}
+                            {% for p in top_products %}
+                                {% include "blocks/_product-item-preview_dp-index.html" with item=p %}
+                            {% endfor %}
+                        {% endautoescape %}
+                    {% endif %} 
+            </div>
+        </div>
+    </div>
+
+            {% include "blocks/_cart-corrector-modal.html"%}
+
+
+<!--    Our advantages-->
+    
+    <div class="container-fluid advantages">
+        <div class="row top-sale-img text-center">
+            <div class="col-sm-12 custom-resize-sale">
+                <p>наши преимущества</p>
+                <div class="custom-b-resize"></div>
+            </div>          
+        </div>
+        <div class="container">
+            <div class="row text-center custom-advantages">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="advantages-blocks"><img src="/static/images/karta.png" alt="alt"></div>
+                    <p>Оплата картой</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="advantages-blocks"><img src="/static/images/dostavka.png" alt="alt"></div>
+                    <p>Бесплатная доставка</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="advantages-blocks"><img src="/static/images/skidki.png" alt="alt"></div>
+                    <p>Регулярные скидки</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="advantages-blocks"><img src="/static/images/kachestvo.png" alt="alt"></div>
+                    <p>Высокое качество</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

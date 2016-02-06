@@ -1,0 +1,13 @@
+{% if  banners %}
+<!-- Banners -->
+{% autoescape off %}
+    <!-- Change 'some_banner_name' to your value -->
+    {% for image in banners.baner_one %}
+    <div class="col-md-3">
+        <img src="{{ image.original_image }}" alt="{{ image.title }}" style="max-width: 100%;" />
+        <span>{{ image.description }}</span>
+    </div>
+    {% endfor %}
+{% endautoescape %}
+<!-- -->
+{% endif %}

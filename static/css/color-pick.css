@@ -1,0 +1,347 @@
+ .color-pick-1,
+.color-pick-3,
+.color-pick-5,
+.color-pick-7,
+.color-pick-9,
+.color-pick-11,
+.color-pick-13,
+.color-pick-15,
+.color-pick-17,
+.color-pick-19,
+.color-pick-21,
+.color-pick-23,
+.color-pick-25,
+.color-pick-27,
+.color-pick-29{
+overflow: hidden;
+position: relative;
+}
+
+.color-pick-1 input,
+.color-pick-3 input,
+.color-pick-5 input,
+.color-pick-7 input,
+.color-pick-9 input,
+.color-pick-11 input,
+.color-pick-13 input,
+.color-pick-15 input,
+.color-pick-17 input,
+.color-pick-19 input,
+.color-pick-21 input,
+.color-pick-23 input,
+.color-pick-25 input,
+.color-pick-27 input,
+.color-pick-29 input{
+display: none;
+}
+
+.color-pick-1 .checkbox label::before,
+.color-pick-3 .checkbox label::before,
+.color-pick-5 .checkbox label::before,
+.color-pick-7 .checkbox label::before,
+.color-pick-9 .checkbox label::before,
+.color-pick-11 .checkbox label::before,
+.color-pick-13 .checkbox label::before,
+.color-pick-15 .checkbox label::before,
+.color-pick-17 .checkbox label::before,
+.color-pick-19 .checkbox label::before,
+.color-pick-21 .checkbox label::before,
+.color-pick-23 .checkbox label::before,
+.color-pick-25 .checkbox label::before,
+.color-pick-27 .checkbox label::before,
+.color-pick-29 .checkbox label::before{
+display: none;
+}
+
+.color-pick-1 .checkbox,
+.color-pick-3 .checkbox,
+.color-pick-5 .checkbox,
+.color-pick-7 .checkbox,
+.color-pick-9 .checkbox,
+.color-pick-11 .checkbox,
+.color-pick-13 .checkbox,
+.color-pick-15 .checkbox,
+.color-pick-17 .checkbox,
+.color-pick-19 .checkbox,
+.color-pick-21 .checkbox,
+.color-pick-23 .checkbox,
+.color-pick-25 .checkbox,
+.color-pick-27 .checkbox,
+.color-pick-29 .checkbox{
+padding-left: 0px;
+}
+
+.color-pick-1 .checkbox:first-child,
+.color-pick-3 .checkbox:first-child,
+.color-pick-5 .checkbox:first-child,
+.color-pick-7 .checkbox:first-child,
+.color-pick-9 .checkbox:first-child,
+.color-pick-11 .checkbox:first-child,
+.color-pick-13 .checkbox:first-child,
+.color-pick-15 .checkbox:first-child,
+.color-pick-17 .checkbox:first-child,
+.color-pick-19 .checkbox:first-child,
+.color-pick-21 .checkbox:first-child,
+.color-pick-23 .checkbox:first-child,
+.color-pick-25 .checkbox:first-child,
+.color-pick-27 .checkbox:first-child,
+.color-pick-29 .checkbox:first-child{
+margin-top: -5px;
+}
+
+.color-pick-1 label,
+.color-pick-3 label,
+.color-pick-5 label,
+.color-pick-7 label,
+.color-pick-9 label,
+.color-pick-11 label,
+.color-pick-13 label,
+.color-pick-15 label,
+.color-pick-17 label,
+.color-pick-19 label,
+.color-pick-21 label,
+.color-pick-23 label,
+.color-pick-25 label,
+.color-pick-27 label,
+.color-pick-29 label{
+display: block;
+position: relative;
+border-radius: 50%;
+background-color: #000;
+width: 30px;
+height: 30px;
+}
+
+.color-pick-1 label:hover,
+.color-pick-1 input[type="checkbox"]:checked + label,
+.color-pick-3 label:hover,
+.color-pick-3 input[type="checkbox"]:checked + label,
+.color-pick-5 label:hover,
+.color-pick-5 input[type="checkbox"]:checked + label,
+.color-pick-7 label:hover,
+.color-pick-7 input[type="checkbox"]:checked + label,
+.color-pick-9 label:hover,
+.color-pick-9 input[type="checkbox"]:checked + label,
+.color-pick-11 label:hover,
+.color-pick-11 input[type="checkbox"]:checked + label,
+.color-pick-13 label:hover,
+.color-pick-13 input[type="checkbox"]:checked + label,
+.color-pick-15 label:hover,
+.color-pick-15 input[type="checkbox"]:checked + label,
+.color-pick-17 label:hover,
+.color-pick-17 input[type="checkbox"]:checked + label,
+.color-pick-19 label:hover,
+.color-pick-19 input[type="checkbox"]:checked + label,
+.color-pick-21 label:hover,
+.color-pick-21 input[type="checkbox"]:checked + label,
+.color-pick-23 label:hover,
+.color-pick-23 input[type="checkbox"]:checked + label,
+.color-pick-25 label:hover,
+.color-pick-25 input[type="checkbox"]:checked + label,
+.color-pick-27 label:hover,
+.color-pick-27 input[type="checkbox"]:checked + label,
+.color-pick-29 label:hover,
+.color-pick-29 input[type="checkbox"]:checked + label{
+background-image: url(/static/images/check_icon.png);
+background-repeat: no-repeat;
+background-position: 50%;
+cursor: pointer;
+}
+
+.color-pick-1 label[for="label_1.2.1"],
+.color-pick-3 label[for="label_3.2.15"],
+.color-pick-5 label[for="label_5.2.26"],
+.color-pick-7 label[for="label_7.2.37"],
+.color-pick-9 label[for="label_9.2.48"],
+.color-pick-11 label[for="label_11.2.59"],
+.color-pick-13 label[for="label_13.2.70"],
+.color-pick-15 label[for="label_15.2.81"],
+.color-pick-17 label[for="label_17.2.92"],
+.color-pick-19 label[for="label_19.2.103"],
+.color-pick-21 label[for="label_21.2.114"],
+.color-pick-23 label[for="label_23.2.125"],
+.color-pick-25 label[for="label_25.2.136"],
+.color-pick-27 label[for="label_27.2.147"],
+.color-pick-29 label[for="label_29.2.4"]{
+background-color: #F00;
+}
+
+.color-pick-1 label[for="label_1.2.5"],
+.color-pick-3 label[for="label_3.2.16"],
+.color-pick-5 label[for="label_5.2.27"],
+.color-pick-7 label[for="label_7.2.38"],
+.color-pick-9 label[for="label_9.2.49"],
+.color-pick-11 label[for="label_11.2.60"],
+.color-pick-13 label[for="label_13.2.71"],
+.color-pick-15 label[for="label_15.2.82"],
+.color-pick-17 label[for="label_17.2.93"],
+.color-pick-19 label[for="label_19.2.104"],
+.color-pick-21 label[for="label_21.2.115"],
+.color-pick-23 label[for="label_23.2.126"],
+.color-pick-25 label[for="label_25.2.137"],
+.color-pick-27 label[for="label_27.2.148"],
+.color-pick-29 label[for="label_29.2.158"]{
+background-color: #006889;
+}
+
+.color-pick-1 label[for="label_1.2.6"],
+.color-pick-3 label[for="label_3.2.17"],
+.color-pick-5 label[for="label_5.2.28"],
+.color-pick-7 label[for="label_7.2.39"],
+.color-pick-9 label[for="label_9.2.50"],
+.color-pick-11 label[for="label_11.2.61"],
+.color-pick-13 label[for="label_13.2.72"],
+.color-pick-15 label[for="label_15.2.83"],
+.color-pick-17 label[for="label_17.2.94"],
+.color-pick-19 label[for="label_19.2.105"],
+.color-pick-21 label[for="label_21.2.116"],
+.color-pick-23 label[for="label_23.2.127"],
+.color-pick-25 label[for="label_25.2.138"],
+.color-pick-27 label[for="label_27.2.149"],
+.color-pick-29 label[for="label_29.2.159"]{
+background-color: #00AD5D;
+}
+
+.color-pick-1 label[for="label_1.2.8"],
+.color-pick-3 label[for="label_3.2.19"],
+.color-pick-5 label[for="label_5.2.30"],
+.color-pick-7 label[for="label_7.2.41"],
+.color-pick-9 label[for="label_9.2.52"],
+.color-pick-11 label[for="label_11.2.63"],
+.color-pick-13 label[for="label_13.2.74"],
+.color-pick-15 label[for="label_15.2.85"],
+.color-pick-17 label[for="label_17.2.96"],
+.color-pick-19 label[for="label_19.2.107"],
+.color-pick-21 label[for="label_21.2.118"],
+.color-pick-23 label[for="label_23.2.129"],
+.color-pick-25 label[for="label_25.2.140"],
+.color-pick-27 label[for="label_27.2.151"],
+.color-pick-29 label[for="label_29.2.161"]{
+background-color: #000;
+}
+
+.color-pick-1 label[for="label_1.2.9"],
+.color-pick-3 label[for="label_3.2.20"],
+.color-pick-5 label[for="label_5.2.31"],
+.color-pick-7 label[for="label_7.2.42"],
+.color-pick-9 label[for="label_9.2.53"],
+.color-pick-11 label[for="label_11.2.64"],
+.color-pick-13 label[for="label_13.2.75"],
+.color-pick-15 label[for="label_15.2.86"],
+.color-pick-17 label[for="label_17.2.97"],
+.color-pick-19 label[for="label_19.2.108"],
+.color-pick-21 label[for="label_21.2.119"],
+.color-pick-23 label[for="label_23.2.130"],
+.color-pick-25 label[for="label_25.2.141"],
+.color-pick-27 label[for="label_27.2.152"],
+.color-pick-29 label[for="label_29.2.162"]{
+background-color: #F655A0;
+}
+
+.color-pick-1 label[for="label_1.2.10"],
+.color-pick-3 label[for="label_3.2.21"],
+.color-pick-5 label[for="label_5.2.32"],
+.color-pick-7 label[for="label_7.2.43"],
+.color-pick-9 label[for="label_9.2.54"],
+.color-pick-11 label[for="label_11.2.65"],
+.color-pick-13 label[for="label_13.2.76"],
+.color-pick-15 label[for="label_15.2.87"],
+.color-pick-17 label[for="label_17.2.98"],
+.color-pick-19 label[for="label_19.2.109"],
+.color-pick-21 label[for="label_21.2.120"],
+.color-pick-23 label[for="label_23.2.131"],
+.color-pick-25 label[for="label_25.2.142"],
+.color-pick-27 label[for="label_27.2.153"],
+.color-pick-29 label[for="label_29.2.163"]{
+background-color: #00B29C;
+}
+
+.color-pick-1 label[for="label_1.2.11"],
+.color-pick-3 label[for="label_3.2.22"],
+.color-pick-5 label[for="label_5.2.33"],
+.color-pick-7 label[for="label_7.2.44"],
+.color-pick-9 label[for="label_9.2.55"],
+.color-pick-11 label[for="label_11.2.66"],
+.color-pick-13 label[for="label_13.2.77"],
+.color-pick-15 label[for="label_15.2.88"],
+.color-pick-17 label[for="label_17.2.99"],
+.color-pick-19 label[for="label_19.2.110"],
+.color-pick-21 label[for="label_21.2.121"],
+.color-pick-23 label[for="label_23.2.132"],
+.color-pick-25 label[for="label_25.2.143"],
+.color-pick-27 label[for="label_27.2.154"],
+.color-pick-29 label[for="label_29.2.164"]{
+background-color: #FFF324;
+}
+
+.color-pick-1 label[for="label_1.2.12"],
+.color-pick-3 label[for="label_3.2.23"],
+.color-pick-5 label[for="label_5.2.34"],
+.color-pick-7 label[for="label_7.2.45"],
+.color-pick-9 label[for="label_9.2.56"],
+.color-pick-11 label[for="label_11.2.67"],
+.color-pick-13 label[for="label_13.2.78"],
+.color-pick-15 label[for="label_15.2.89"],
+.color-pick-17 label[for="label_17.2.100"],
+.color-pick-19 label[for="label_19.2.111"],
+.color-pick-21 label[for="label_21.2.122"],
+.color-pick-23 label[for="label_23.2.133"],
+.color-pick-25 label[for="label_25.2.144"],
+.color-pick-27 label[for="label_27.2.155"],
+.color-pick-29 label[for="label_29.2.165"]{
+background-color: #F24841;
+}
+
+.color-pick-1 label[for="label_1.2.13"],
+.color-pick-3 label[for="label_3.2.24"],
+.color-pick-5 label[for="label_5.2.35"],
+.color-pick-7 label[for="label_7.2.46"],
+.color-pick-9 label[for="label_9.2.57"],
+.color-pick-11 label[for="label_11.2.68"],
+.color-pick-13 label[for="label_13.2.79"],
+.color-pick-15 label[for="label_15.2.90"],
+.color-pick-17 label[for="label_17.2.101"],
+.color-pick-19 label[for="label_19.2.112"],
+.color-pick-21 label[for="label_21.2.123"],
+.color-pick-23 label[for="label_23.2.134"],
+.color-pick-25 label[for="label_25.2.145"],
+.color-pick-27 label[for="label_27.2.156"],
+.color-pick-29 label[for="label_29.2.166"]{
+background-color: #8E58A3;
+}
+
+.color-pick-1 label[for="label_1.2.14"],
+.color-pick-3 label[for="label_3.2.25"],
+.color-pick-5 label[for="label_5.2.36"],
+.color-pick-7 label[for="label_7.2.47"],
+.color-pick-9 label[for="label_9.2.58"],
+.color-pick-11 label[for="label_11.2.69"],
+.color-pick-13 label[for="label_13.2.80"],
+.color-pick-15 label[for="label_15.2.91"],
+.color-pick-17 label[for="label_17.2.102"],
+.color-pick-19 label[for="label_19.2.113"],
+.color-pick-21 label[for="label_21.2.124"],
+.color-pick-23 label[for="label_23.2.135"],
+.color-pick-25 label[for="label_25.2.146"],
+.color-pick-27 label[for="label_27.2.157"],
+.color-pick-29 label[for="label_29.2.167"]{
+background-image: url(/static/images/all-color-pick.jpg);
+}
+
+.color-pick-1 label[for="label_1.2.7"],
+.color-pick-3 label[for="label_3.2.18"],
+.color-pick-5 label[for="label_5.2.29"],
+.color-pick-7 label[for="label_7.2.40"],
+.color-pick-9 label[for="label_9.2.51"],
+.color-pick-11 label[for="label_11.2.62"],
+.color-pick-13 label[for="label_13.2.73"],
+.color-pick-15 label[for="label_15.2.84"],
+.color-pick-17 label[for="label_17.2.95"],
+.color-pick-19 label[for="label_19.2.106"],
+.color-pick-21 label[for="label_21.2.117"],
+.color-pick-23 label[for="label_23.2.128"],
+.color-pick-25 label[for="label_25.2.139"],
+.color-pick-27 label[for="label_27.2.150"],
+.color-pick-29 label[for="label_29.2.160"]{
+background-color: #FFF;
+}

@@ -1,0 +1,4 @@
+media/
+*.pyc
+.idea/
+__pycache__/

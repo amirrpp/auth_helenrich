@@ -1,0 +1,65 @@
+<div>
+    <form action="/catalogue/{{category.url}}" method="get" class="form_filter">
+
+    <div class="dn-helen-rich">
+    <label>Order By:
+        <select name="order_by">
+            <option value="by weight" {% if filter.order_by == 'by weight' %} selected {% endif %}>by weight</option>
+            <option value="by price asc" {% if filter.order_by == 'by price asc' %} selected {% endif %}>by price asc</option>
+            <option value="by price dsc" {% if filter.order_by == 'by price dsc' %} selected {% endif %}>by price dsc</option>
+            <option value="by date" {% if filter.order_by == 'by date' %} selected {% endif %}>by date</option>
+        </select>
+    </label>
+
+        <label>Price MIN:
+            <input type="text" name="price_from" value="{{ filter.price_from.default_price__min }}">
+        </label><br/>
+        <label>Price MAX:
+            <input type="text" name="price_to" value="{{ filter.price_to.default_price__max }}">
+        </label>
+</div>
+
+        {% for elem in filter %}
+        <div class="color-pick-{{ elem.param_id }}">
+            <p class="available_values-name">{{ elem.name }}</p>
+            <div class="available_values-padd clearfix">
+            {% if elem.custom_values %}
+                {% for custom_value in elem.custom_values %}
+                        {% if custom_value.custom_value in elem.custom_value_checked %}
+                            <input type="checkbox" id="label_{{ elem.param_id }}.0" name="{{ elem.param_id }}.0" value="{{ custom_value.custom_value }}" checked>
+                        {% else %}
+                            <input type="checkbox" id="label_{{ elem.param_id }}.0" name="{{ elem.param_id }}.0" value="{{ custom_value.custom_value }}">
+                        {% endif %}
+                    <label  for="label_{{ elem.param_id }}.0">{{ custom_value.custom_value }}</label>
+                    <br>
+                {% endfor %}
+            {% endif %}
+            {% if elem.available_intervals %}
+                {% for item in elem.available_intervals %}
+
+                        {% if item.id in elem.interval_checked %}
+                            <input type="checkbox" id="label_{{ elem.param_id }}.1.{{ item.id }}" name="{{ elem.param_id }}.1.{{ item.id }}" value="{{ item.id }}" checked>
+                        {% else %}
+                            <input type="checkbox" id="label_{{ elem.param_id }}.1.{{ item.id }}" name="{{ elem.param_id }}.1.{{ item.id }}" value="{{ item.id }}">
+                        {% endif %}
+                   <label for="label_{{ elem.param_id }}.1.{{ item.id }}"> {{ item }}</label>
+                    <br>
+                {% endfor %}
+            {% elif elem.available_values %}
+                {% for item in elem.available_values %}
+                    <div class="available_values-item checkbox checkbox-primary checkbox-primary-custom">
+                        {% if item.id in elem.value_checked %}
+                            <input id="label_{{ elem.param_id }}.2.{{ item.id }}" type="checkbox" name="{{ elem.param_id }}.2.{{ item.id }}" value="{{ item.id }}" checked>
+                        {% else %}
+                            <input id="label_{{ elem.param_id }}.2.{{ item.id }}" type="checkbox" name="{{ elem.param_id }}.2.{{ item.id }}" value="{{ item.id }}">
+                        {% endif %}
+
+                        <label for="label_{{ elem.param_id }}.2.{{ item.id }}" title="{{ item.value }}">{{ item.value }}</label></div>
+                {% endfor %}
+            {% endif %}
+            </div>
+         </div>   
+        {% endfor %}
+     <!-- <input type="submit" value="Filter"/> -->
+    </form>
+</div>

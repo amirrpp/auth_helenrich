@@ -1,0 +1,26 @@
+{% if gallery %}
+<!-- Gallery -->
+{% autoescape off %}
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+    {% for item in gallery %}
+        <div class="item {% if forloop.first %} active {% endif %}">
+            <div class="testing-slide">
+                <img src="{{ item.medium_image }}"  alt="{{ item.title }}">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endautoescape %}
+
+<!-- /Gallery -->
+{% endif %}
+
+
+
+
+
+
+

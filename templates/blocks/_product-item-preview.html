@@ -1,0 +1,39 @@
+<a href="/product/{{ item.product.url }}">
+    {% for image in item.images %}
+        <img src={{ image.small_image }} alt="{{ image.title }}"/>
+    {% endfor %}
+</a>
+
+<br>
+
+<a href="/product/{{ item.product.url }}">
+    {{ item.product.name }}
+</a>
+
+<br>
+
+<div class="product-add_to_cart">
+
+    {% if item.corrections %}
+        <div class="product-price_corrector">
+            {% for corrector in item.corrections %}
+                <label for="cor_{{ item.product.id }}_{{ corrector.id }}">{{ corrector.name }}</label>
+                <input type="radio" name="product_{{ item.product.id }}" id="cor_{{ item.product.id }}_{{ corrector.id }}" value="{{ corrector.new_price }}" data-c="{{ corrector.id }}">
+            {% endfor %}
+        </div>
+        <span class="product-price_corrector_print"></span>
+    {% else %}
+        <span class="product-price">{{ item.product.default_price }}</span>
+    {% endif %}
+    Rating:
+    {{ item.product.get_avg_rating }}
+    <br>
+
+    <input type="button" class="add-to-cart" value="Add to cart" name="Add"
+           data-p="{{ item.product.id }}"
+           data-c=""
+    />
+    <br>
+    <br>
+
+</div>

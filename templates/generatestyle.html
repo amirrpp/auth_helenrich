@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="height: 90%;">
+
+
+    <textarea style="width: 500px; height: 270px;">{% for cs in css_style %}
+            $(".color-pick-{{ cs.pp.id }} label").html("&nbsp;");{% endfor %}</textarea>
+    <br><br>
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }}{<br>
+            overflow: hidden;<br>
+            position: relative;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }},<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }} input{<br>
+            display: none;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }} input,<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }} .checkbox label::before{<br>
+            display: none;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }} .checkbox label::before,<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }} .checkbox{<br>
+            padding-left: 0px;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }} .checkbox,<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }} .checkbox:first-child{<br>
+            margin-top: -5px;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }} .checkbox:first-child,<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }} label{<br>
+            display: block;<br>
+            position: relative;<br>
+            border-radius: 50%;<br>
+            background-color: #000;<br>
+            width: 30px;<br>
+            height: 30px;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }} label,<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+        {% if forloop.last %}
+            .color-pick-{{ cs.pp.id }} label:hover,<br>
+            .color-pick-{{ cs.pp.id }} input[type="checkbox"]:checked + label{<br>
+            background-image: url(/static/images/check_icon.png);<br>
+            background-repeat: no-repeat;<br>
+            background-position: 50%;<br>
+            cursor: pointer;<br>
+            }<br><br>
+        {% else %}
+            .color-pick-{{ cs.pp.id }} label:hover,<br>
+            .color-pick-{{ cs.pp.id }} input[type="checkbox"]:checked + label,<br>
+        {% endif %}
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Красный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #F00;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Красный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Синий' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #006889;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Синий' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Зеленый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #00AD5D;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Зеленый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Черный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #000;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Черный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Розовый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #F655A0;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Розовый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Мятный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #00B29C;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Мятный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Желтый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #FFF324;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Желтый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Коралл' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #F24841;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Коралл' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Фиолетовый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #8E58A3;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Фиолетовый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Разноцветный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-image: url(/static/images/all-color-pick.jpg);<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Разноцветный' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% for cs in css_style %}
+
+        {% if forloop.last %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Белый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"]{<br>
+                        background-color: #FFF;<br>
+                    }<br><br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for cs_ppav in cs.ppav %}
+                {% if cs_ppav.value == 'Белый' %}
+                    .color-pick-{{ cs.pp.id }} label[for="label_{{ cs.pp.id }}.2.{{ cs_ppav.id }}"],<br>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+
+</body>
+</html>

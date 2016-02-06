@@ -1,0 +1,12 @@
+
+<div class="ofor-z text-center">
+     <p class="ofor-z-z">Оформление заказа</p>
+     <form method="post" class="web_shop_cart-form_order">
+	    <div class="web_shop_cart-product_hidden_field"></div>
+	     {% csrf_token %}
+	     <input type="text" name="user_name" size="25" placeholder="Имя">
+	     <input type="text" name="user_phone" size="25" placeholder="Телефон">
+	     <input type="text" name="user_email" size="25" placeholder="E-mail">
+	    <input type="submit" name="button" value="Подтвердить" class="off-z-butt">
+    </form>
+ </div>

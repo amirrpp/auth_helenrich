@@ -1,0 +1,125 @@
+{% extends "blocks/base.html" %}
+
+{% block content %}
+
+
+<div class="container-fluid bradc-top first-modal-custom">
+         <div class="row">
+             <div class="col-sm-12">
+                 <ol class="breadcrumb">
+                  <li><a href="#">Главная</a></li>
+                  <li class="active">Каталог</li>
+                </ol>
+             </div>
+         </div>
+         <div class="container">
+             <div class="row">
+                 <div class="col-sm-3  custom-mob-filtrs">                   
+                     <p class="z1-catalog">каталог</p>
+                     <div class="left-menu-catalog">
+                     {% include "blocks/_extra-menu.html" %}
+
+                     </div>
+                     <p class="z1-catalog">фильтры</p>
+
+
+                    {% include "blocks/_filter.html" %}
+                    
+
+
+
+                 </div>
+                 
+<!--                 Мобильные фильтры p2-->
+               
+                <div class="col-xs-12 mob-f-n"><p class="z1-catalog">каталог</p></div>
+                <div class="col-xs-12 mob-f-n">
+                    <select name="selectoptions" class="filtrs-drop-mob">
+                        <option value="option1">Короткие платья</option>
+                        <option value="option2">Длинные платья</option>
+                        <option value="option3">Спортивные костюмы</option>
+                        <option value="option4">Костюмы</option>                
+                        <option value="option5">Пляжная одежа</option>
+                        <option value="option6">Верхняя одежда</option>                       
+                        <option value="option7">Футболки</option>                       
+                        <option value="option8">Лосины</option>
+                        <option value="option9">Юбки</option>     
+                        <option value="option10">Штаны</option>
+                        <option value="option11">Рубашки</option>
+                        <option value="option12">Пиджаки</option>
+                        <option value="option13">Одежда для детей</option>
+                        <option value="option13">Одежда для дома</option>
+                        <option value="option13">Распродажа</option>
+                    </select>
+                </div>              
+                <div class="col-xs-12 mob-f-n"><input type="button" name="button" value="Фильтры" class="filters-all" data-toggle="modal" data-target="#myModal"></div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span><img class="mobile-drop-icon" src="images/close_icon.png" alt="alt"></span></button>
+                          </div>
+                          <div class="modal-body">
+                                                 <p class="z4-catalog">По цвету:</p>
+                     <div class="color-pick-catalog">
+                     <ul>
+                         <li><a href="#"><img src="/static/images/1ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/2-1ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/3ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/4ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/5ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/6ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/7ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/8ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/9ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li><a href="#"><img src="/static/images/10ellips.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                         <li class="active"><a href="#"><img src="/static/images/11ellips-.png" alt="alt"></a><img src="/static/images/check_icon.png" alt="alt" class="custom-click-img"></li>
+                     </ul>
+                     </div>
+                     <p class="z4-catalog-custom">По цвету:</p>
+                     <div class="checkbox checkbox-primary checkbox-primary-custom">
+                         <input id="checkbox98" type="checkbox">
+                         <label for="checkbox98">Повседневный</label>
+                    </div>
+                    <div class="checkbox checkbox-primary checkbox-primary-custom">
+                         <input id="checkbox99" type="checkbox">
+                         <label for="checkbox99">Вечерние</label>
+                    </div>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                 
+                 
+                 <div class="col-sm-9 custom-gall-img-catalog img-catalog-p2-mob">
+                    <div class="col-sm-6 custom-top-catalog-p-1">
+                       <p>Сортировать по: <span>от дорогих к дешевым</span></p> 
+                    </div>
+                    <div class="col-sm-6 custom-top-catalog-p-2 text-right">
+                        <p>Показано 9из 12</p>
+                    </div>
+                    {% if products %}
+                        {% autoescape off %}
+                            {% for p in products %}
+                                {% include "blocks/_product-item-preview_dp.html" with item=p %}
+                            {% endfor %}
+                        {% endautoescape %}
+                    {% endif %} 
+                    <div class="col-sm-12 text-center bott-nav-catalog">
+                        <nav>
+                          <!--ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li>
+                            </li>
+                          </ul-->
+                        </nav>
+                    </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+{% endblock %}

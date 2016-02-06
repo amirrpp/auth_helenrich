@@ -1,0 +1,17 @@
+            <div class="col-sm-6 col-md-4">
+                <div class="custom-buy-butt">
+                        {% for image in item.images %}
+                        {% if forloop.first %}
+                            <img src={{ image.medium_image }} alt="{{ image.title }}"/>
+                        {% endif %}
+                        {% endfor %}
+                <div class="product-add_to_cart">
+                <button class="butt-buy add-to-cart" data-p="{{ item.product.id }}" data-c="" data-toggle="modal" data-target="#cart-corrector-modal">В корзину</button>
+                </div>
+
+                <a href="/product/{{ item.product.url }}"><button class="butt-buy-1">Подробнее</button></a>
+
+                </div>    
+                <p class="name-sale">{{ item.product.name }}</p>
+                <p class="sale-price">{{ item.product.default_price|floatformat:'-2'  }} грн</p>
+            </div>
