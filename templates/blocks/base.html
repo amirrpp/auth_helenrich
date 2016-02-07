@@ -47,15 +47,22 @@
 <!--            TOP-->
             
              <div class="row top-header">
-                 <div class="col-md-9 top-header-left custom-prv-1-p">
+                 <div class="col-md-8 top-header-left custom-prv-1-p">
                      <a href="/"><img src="/static/images/Helen-Rich.png" alt="alt"></a>
                      <span>Магазин женской одежды</span>
                  </div>
-                 <div class="col-sm-3 top-header-right text-right">
-<!--                      <img src="/static/images/zoom_icon.png" alt="alt"><span><a href="#">ПОИСК</a></span> -->
+                 <div class="col-sm-4 top-header-right text-right">
+                     <img src="/static/images/cart_icon.png" alt="alt">
+                     <span>
+                         {% if user.is_authenticated %}
+                             <a href="{% url "profile" %}">Здравствуйте, {{ user.username }}</a>
+                         {% else %}
+                             <a href="{% url "login_registration" %}">Логин/Регистрация</a>
+                         {% endif %}
+                     </span>
+
                      <img src="/static/images/cart_icon.png" alt="alt"><span><a href="/cart">КОРЗИНА</a></span>
                      <span class="web_shop_cart-total_price" style="display: block; margin-top: -21px; line-height: 12px; padding-right: 62px;"> </span>
-<!--                      <a href="#" class="active">РУС</a> <i>|</i> <a href="#">УКР</a> -->
                  </div>
              </div>
              
