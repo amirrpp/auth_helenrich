@@ -94,10 +94,10 @@ class EmailUserChangeForm(EmailUserCreationForm):
 
     def clean_email(self):
         email = normalise_email(self.cleaned_data['email'])
-        # user = User._default_manager.filter(email__iexact=email)
-        # if user.exists():
-        #     raise forms.ValidationError(
-        #         _("A user with that email address already exists"))
+        user = User._default_manager.filter(email__iexact=email).exclude(pk=self.instance.id)
+        if user.exists():
+            raise forms.ValidationError(
+                _("A user with that email address already exists"))
         return email
 
     def clean_old_password(self):
