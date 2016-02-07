@@ -1,5 +1,7 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+import sys
 from easy_thumbnails.conf import Settings as ThumbnailSettings
 
 
@@ -154,6 +156,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
 
 AUTHENTICATION_BACKENDS = (
     'webaccount.auth_backend.EmailBackend',
