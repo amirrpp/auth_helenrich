@@ -1,7 +1,6 @@
 from django import http
 from django.conf import settings
 from django.contrib.auth import login, authenticate, get_user_model, logout
-from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, UpdateView
 
@@ -23,14 +22,14 @@ class AccountEditView(UpdateView):
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated():
-            return http.HttpResponseRedirect(reverse('login_registration'))
+            return redirect(settings.LOGIN_URL)
         return super().get(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
         return self.request.user
 
     def get_success_url(self):
-        return reverse('profile')
+        return settings.LOGIN_REDIRECT_URL
 
 
 class AccountAuthView(TemplateView):
