@@ -1,0 +1,24 @@
+{% extends "blocks/base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6">
+            <form id="login_form" action="{% url "login_registration" %}" method="post">
+                {% csrf_token %}
+                {{ login_form }}
+                <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary">
+                    {% trans 'Log In' %}</button>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <form id="registration_form" action="{% url "login_registration" %}" method="post">
+                {% csrf_token %}
+                {{ registration_form }}
+                <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary">
+                    {% trans 'Register' %}</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

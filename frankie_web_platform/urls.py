@@ -15,6 +15,8 @@ import webshopcart.views
 # Web rating App Views
 import webrating.views
 
+from webaccount.views import AccountAuthView
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^catalogue/generatestyle', webshop.views.generatestyle),
@@ -23,6 +25,7 @@ urlpatterns = [
     url(r'^product/(\w+)', webshop.views.product_page, name='product_page'),
     url(r'^cart', webshopcart.views.cart_page),
     url(r'^comments', webrating.views.comments),
+    url(r'^auth$', AccountAuthView.as_view(), name='login_registration'),
     url(r'^(\w+)$', website.views.page, name='page'),
     url(r'^chaining/', include('smart_selects.urls')),
     url(r'^$', website.views.index_page),
