@@ -145,13 +145,18 @@ WSGI_APPLICATION = 'frankie_web_platform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'helenrich',                      
+        'NAME': 'helenrich',
         'USER': 'helenrich',
         'PASSWORD': 'FeqDuScq',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
+AUTHENTICATION_BACKENDS = (
+    'webaccount.auth_backend.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Internationalization
