@@ -34,7 +34,6 @@ def comments(request):
             form = wff.FormRatingGlobal()
 
         return render(request, 'comments.html', {
-            'main_menu': wlm.MainMenu.objects.all(),
             'additional_menu': wlm.AdditionalMenu.objects.all(),
             'extra_menu': wlm.ExtraMenu.objects.all(),
             'sys_header': sys_header,

@@ -579,7 +579,6 @@ def page(request, page_url):
         return render(request, category.template.path, {
             'seo': seo,
             'category': category,
-            'main_menu': wlm.MainMenu.objects.all(),
             'additional_menu': wlm.AdditionalMenu.objects.all(),
             'extra_menu': wlm.ExtraMenu.objects.all(),
             'sys_header': sys_header,

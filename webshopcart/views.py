@@ -264,7 +264,6 @@ def cart_page(request):
                 image_positions.append(banner.name, image_position)
 
         return render(request, 'cart.html', {
-            'main_menu': wlm.MainMenu.objects.all(),
             'additional_menu': wlm.AdditionalMenu.objects.all(),
             'extra_menu': wlm.ExtraMenu.objects.all(),
             'banners': image_positions,
