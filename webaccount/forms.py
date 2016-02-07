@@ -106,21 +106,10 @@ class EmailUserChangeForm(EmailUserCreationForm):
 
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('old_password')
+
         if password1 or password2:
-            self.user_cache = authenticate(username=username,
-                                           password=password)
-            if self.user_cache is None:
-                raise forms.ValidationError(
-                    self.error_messages['invalid_login'],
-                    code='invalid_login',
-                    params={'username': self.username_field.verbose_name},
-                )
-            else:
-                if not self.user_cache.is_active:
-                    raise forms.ValidationError(
-                        self.error_messages['inactive'],
-                        code='inactive',
-                    )
+            self.auth(username=username, password=password)
+
         return password
 
     def clean(self):
@@ -128,19 +117,22 @@ class EmailUserChangeForm(EmailUserCreationForm):
         password = self.cleaned_data.get('old_password')
 
         if username and password:
-            self.user_cache = authenticate(username=username,
-                                           password=password)
-            if self.user_cache is None:
-                raise forms.ValidationError(
-                    self.error_messages['invalid_login'],
-                    code='invalid_login',
-                    params={'username': self.username_field.verbose_name},
-                )
-            else:
-                if not self.user_cache.is_active:
-                    raise forms.ValidationError(
-                        self.error_messages['inactive'],
-                        code='inactive',
-                    )
+            self.auth(username=username, password=password)
 
         return self.cleaned_data
+
+    def auth(self, username, password):
+        user_cache = authenticate(username=username,
+                                  password=password)
+        if user_cache is None:
+            raise forms.ValidationError(
+                self.error_messages['invalid_login'],
+                code='invalid_login',
+                params={'username': self.username_field.verbose_name},
+            )
+        else:
+            if not user_cache.is_active:
+                raise forms.ValidationError(
+                    self.error_messages['inactive'],
+                    code='inactive',
+                )
