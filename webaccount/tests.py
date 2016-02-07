@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import AnonymousUser, User
 from django.test import TestCase, RequestFactory, Client
+from django.utils.translation import ugettext_lazy as _
 
 from webaccount.views import AccountAuthView, AccountEditView
 from website.views import index_page
@@ -9,6 +10,7 @@ from website.views import index_page
 REQUIRED_FIELD = 'Обязательное поле.'
 BAD_PASSWORD = 'Пожалуйста, введите правильные имя пользователя и пароль. ' \
                'Оба поля могут быть чувствительны к регистру.'
+USER_IS_EXiSTS = _("A user with that email address already exists")
 LOGIN_BUTTON_LABEL = 'Log in'
 REGISTRATION_BUTTON_LABEL = 'Register'
 
@@ -321,7 +323,7 @@ class AccountPageLoginTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertFalse(User.objects.filter(username=username).exists())
         self.assertEqual(response.wsgi_request.user, AnonymousUser())
-        self.assertContains(response, 'Два поля с паролями не совпадают.')
+        self.assertContains(response, _("The two password fields didn't match."))
 
     def test_registration_user_required_fields(self):
         c = Client()
