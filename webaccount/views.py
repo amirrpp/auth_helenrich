@@ -89,7 +89,8 @@ class AccountAuthView(TemplateView):
         ctx = self.get_context_data(login_form=form)
         return self.render_to_response(ctx)
 
-    def get_login_success_url(self, form):
+    @staticmethod
+    def get_login_success_url(form):
         redirect_url = form.cleaned_data['redirect_url']
         if redirect_url:
             return redirect_url
@@ -116,7 +117,8 @@ class AccountAuthView(TemplateView):
         ctx = self.get_context_data(registration_form=form)
         return self.render_to_response(ctx)
 
-    def get_registration_success_url(self, form):
+    @staticmethod
+    def get_registration_success_url(form):
         redirect_url = form.cleaned_data['redirect_url']
         if redirect_url:
             return redirect_url
