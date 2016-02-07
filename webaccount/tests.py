@@ -59,6 +59,28 @@ class AccountPageProfileTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(User.objects.get(username=self.username).email, new_email)
 
+    def test_profile_change_email_to_exists(self):
+        c = Client()
+
+        new_email = 'other@email.change'
+        User.objects.create_user(
+            username='newuser', email=new_email, password=self.password)
+
+        c.login(username=self.email, password=self.password)
+
+        response = c.post(settings.LOGIN_REDIRECT_URL, data={
+            'email': new_email,
+            'username': self.username,
+            'old_password': '',
+            'password1': '',
+            'password2': '',
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.wsgi_request.user, User.objects.get(username=self.username))
+        self.assertEqual(User.objects.get(username=self.username).email, self.email)
+        self.assertContains(response, USER_IS_EXiSTS)
+
     def test_profile_change_username(self):
         c = Client()
         c.login(username=self.email, password=self.password)
@@ -72,7 +94,7 @@ class AccountPageProfileTest(TestCase):
         })
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(User.objects.get(email=self.email).username, self.username+'other')
+        self.assertEqual(User.objects.get(email=self.email).username, self.username + 'other')
 
     def test_profile_change_password(self):
         c = Client()
@@ -306,6 +328,23 @@ class AccountPageLoginTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(User.objects.filter(username=username).exists())
         self.assertEqual(response.wsgi_request.user, User.objects.get(username=username))
+
+    def test_registration_exists_user(self):
+        c = Client()
+
+        username = 'newuser'
+
+        response = c.post(settings.LOGIN_URL, data={
+            'registration-email': self.email,
+            'registration-username': username,
+            'registration-password1': 'secret',
+            'registration-password2': 'secret',
+            'registration_submit': REGISTRATION_BUTTON_LABEL,
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.wsgi_request.user, AnonymousUser())
+        self.assertContains(response, USER_IS_EXiSTS)
 
     def test_registration_user_different_password(self):
         c = Client()
