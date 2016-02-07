@@ -233,3 +233,5 @@ PRODUCT_IMAGE_SMALL = '155x190'
 SIMILAR_PRODUCTS_NUM = 4
 
 THUMBNAIL_PROCESSORS = ('image_cropping.thumbnail_processors.crop_corners',) + ThumbnailSettings.THUMBNAIL_PROCESSORS
+
+HOMEPAGE = '/'
