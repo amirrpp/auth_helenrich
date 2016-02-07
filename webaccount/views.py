@@ -1,12 +1,36 @@
 from django import http
 from django.conf import settings
-from django.contrib.auth import login, authenticate, get_user_model
+from django.contrib.auth import login, authenticate, get_user_model, logout
+from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, UpdateView
 
-from .forms import EmailAuthenticationForm, EmailUserCreationForm
+from .forms import EmailAuthenticationForm, EmailUserCreationForm, EmailUserChangeForm
 
 User = get_user_model()
+
+
+def logout_view(request):
+    logout(request)
+
+    return http.HttpResponseRedirect(settings.HOMEPAGE)
+
+
+class AccountEditView(UpdateView):
+    model = User
+    form_class = EmailUserChangeForm
+    template_name = 'auth/profile.html'
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            return http.HttpResponseRedirect(reverse('login_registration'))
+        return super().get(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_success_url(self):
+        return reverse('profile')
 
 
 class AccountAuthView(TemplateView):
@@ -31,7 +55,6 @@ class AccountAuthView(TemplateView):
         return ctx
 
     def post(self, request, *args, **kwargs):
-        # Use the name of the submit button to determine which form to validate
         if u'login_submit' in request.POST:
             return self.validate_login_form()
         elif u'registration_submit' in request.POST:
