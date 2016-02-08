@@ -25,7 +25,7 @@
 можно заменить на
 
 ```
-    ppv.objects.filter(Q(custom_value__gte=10) | Q(value__value__gte=10)).values_list('id', flat=True)
+    wshm.ProductParameterValue.objects.filter(Q(custom_value__gte=10) | Q(value__value__gte=10)).values_list('id', flat=True)
 ```
 
 итоговый запрос к базе получается
