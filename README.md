@@ -39,4 +39,4 @@
       OR 
       "product_parameters_available_value"."value" >= 10)
 ```
-т.е. эквивалентен начальному (нет `JOIN product_parameters as prod_param ON prod_vals.product_parameter_id=prod_param.id`, но он нигде и не используется.
+т.е. эквивалентен начальному (нет `JOIN product_parameters as prod_param ON prod_vals.product_parameter_id=prod_param.id`, но он нигде и не используется)
